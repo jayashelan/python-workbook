@@ -79,8 +79,13 @@ class AlienInvasion:
 			self.ship.update()
 
 			self._update_bullets()
+			self.update_alien()
 			
 			self._update_screen()
+	def update_alien(self):
+		""" make the aliens move"""
+		self.aliens.update()
+			
 
 	def _check_events(self):
 		"""Respond to keypress and mouse events"""
@@ -147,7 +152,12 @@ class AlienInvasion:
 
 		pygame.display.flip()
 
-
+	def _check_fleet_edges(self):
+		"""Respond appropriately if any aliens have reached an edge"""
+		for alien in self.aliens.sprites():
+			if alien.check_edges():
+				
+		
 
 
 
